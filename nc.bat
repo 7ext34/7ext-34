@@ -16,7 +16,7 @@ timeout 15
 
 
 set /a loop=%loop%+1 
-if "%loop%"=="3" goto end
+if "%loop%"=="10" goto end
 goto loop
 
 :end
