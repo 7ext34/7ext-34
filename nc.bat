@@ -5,7 +5,7 @@ set loop=0
 
 
 
-tasklist | find /I "nc_runtime" 
+tasklist | find /I "nc_run" 
 if errorlevel 1 (
         C:\nc\rh.exe C:\nc\nc_run.bat
 ) Else (
