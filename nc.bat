@@ -1,22 +1,11 @@
 @echo off
-set loop=0
 :loop
-
-
-
-
-tasklist | find /I "nc_run" 
-if errorlevel 1 (
-        C:\nc\rh.exe C:\nc\nc_run.bat
-) Else (
-        taskkill /f /t /im nc_run.bat
-)
-
+cls
+taskkill /f /fi "status eq not responding"
 timeout 15
-
-
-set /a loop=%loop%+1 
-if "%loop%"=="10" goto end
-goto loop
-
+tasklist /FI "IMAGENAME eq nc.exe" 2>NUL | find /I /N "nc.exe">NUL
+if NOT "%ERRORLEVEL%" == "0" start C:\nc\rh.exe C:\nc\nc_run.bat
+if errorlevel 0 (
+        goto loop
+)
 :end
