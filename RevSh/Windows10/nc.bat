@@ -1,11 +1,17 @@
 @echo off
-:loop
-cls
-taskkill /f /fi "status eq not responding"
-timeout 15
-tasklist /FI "IMAGENAME eq nc.exe" 2>NUL | find /I /N "nc.exe">NUL
-if NOT "%ERRORLEVEL%" == "0" C:\nc\rh.exe C:\nc\nc_run.bat
-if errorlevel 0 (
-        goto loop
-)
-:end
+title nc
+
+:LOOP
+timeout 5
+SET MyProcess=nc.exe
+ECHO "%MyProcess%"
+TASKLIST | FINDSTR /I "%MyProcess%"
+IF ERRORLEVEL 1 (GOTO :START) ELSE (ECHO "%MyProcess%" is currently running)
+GOTO :LOOP
+
+:START
+REM taskkill /F /IM cmd.exe /FI "WINDOWTITLE ne nc*"
+start C:\nc\nc.vbs
+
+
+goto LOOP
