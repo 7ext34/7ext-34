@@ -8,5 +8,5 @@ TASKLIST | FINDSTR /I "%MyProcess%"
 IF ERRORLEVEL 1 (GOTO :START) ELSE (ECHO "%MyProcess%" is currently running)
 GOTO :LOOP
 :START
-start C:\nc\nc.vbs
+start nc.vbs
 goto LOOP
